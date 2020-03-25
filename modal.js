@@ -1,4 +1,4 @@
-//ADD NEW PATIENT MODAL
+
 var modal = document.getElementById('modalForm');
 var modalBtn = document.getElementById('modalBtn');
 var closeBtn = document.querySelector('.closeBtn');

@@ -27,7 +27,7 @@ const createTable = function(tables, filters){
     })
     $("#tbody").empty();
     filteredTables.forEach(element =>{
-        $("#myTable").find("tBody").append("<tr><td>"+ element.Patient_name + "</td>" + "<td>" + element.Patient_age  + "</td>" + "<td>" + element.Patient_gender + "</td> </tr>");
+        $("#myTable").find("tBody").append("<tr><td>"+ element.id + "</td>" + "<td>" + element.Patient_name  + "</td>" + "<td>" + element.Patient_age  + "</td>" + "<td>" + element.Patient_gender + "</td> </tr>");
     })
 }
 

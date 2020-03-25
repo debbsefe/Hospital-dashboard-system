@@ -1,79 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Marginal Value</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
+    
+  </head>
+  <body>
+    <div id="firebaseui-auth-container"></div>
 
-    <!-- <div class="wrapper">
-        <div class="sidebar">
-            <h2>Marginal Value</h2>
-            <ul>
-                <li><a href="http://127.0.0.1/wordpress/patients/">Patients</a></li>
-                <li><a href="http://127.0.0.1/wordpress/encounters/">Encounters</a></li>
-                <li><a href="http://127.0.0.1/wordpress/logout/">Logout</a></li>
-            </ul> 
-        </div> -->
-    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="./js/db.js"></script>
 
-    <div class="main_content">      
-    <div class="top-wrapper">
-        <input type="text" id="myInput" class="myInput" placeholder="Search for patient...">
-        <button class="btn" id="modalBtn">Add new patient</button>
-        </div>
-        <div id="modalForm" class="modal">
-            <form class="formContent" action="" method="post">
-                <span class="closeBtn">&times;</span>
-                <h2>ADD NEW PATIENT</h2>
-                <label>Full Name</label>
-                <input type="text" id="patient_name" name="patient_name"> 
-                <label>Age</label>
-                <input type="text" id="patient_age" name="patient_age">
-                <label>Gender</label>
-                <select name="patient_gender" class="patient_gender" id="patient_gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                </select>
-                <input type="submit" name="save" value="Save" id="savePatient" class="savePatient">        
-            </form>
-        </div>  
-
-        <form method="post" action="">
-        <table id="myTable" class="myTable">
-            <thead>
-            <tr class="header">
-                <th style="width:25%;">PATIENT_ID</th>
-                <th style="width:25%;">NAME</th>
-                <th style="width:25%;">AGE</th>
-                <th style="width:25%;">GENDER</th>
-            </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-        </table>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-    <script>
-    var firebaseConfig = {
-        apiKey: "AIzaSyD9CtN1ifKuOCx91K2JhHrPwXTOlbMRHT4",
-        authDomain: "mhsystem-94ffb.firebaseapp.com",
-        databaseURL: "https://mhsystem-94ffb.firebaseio.com",
-        projectId: "mhsystem-94ffb",
-        storageBucket: "mhsystem-94ffb.appspot.com",
-        messagingSenderId: "241220071287",
-        appId: "1:241220071287:web:9e0a2dc68325d42974fb72",
-        measurementId: "G-KH6EKZ5V7Q"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    </script>
-    <script src="app.js"></script>
-    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
-    <script src="modal.js"></script>
-
-</body>
+    <!-- Firebase UI -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <script src="./js/auth.js"></script>
+  </body>
 </html>

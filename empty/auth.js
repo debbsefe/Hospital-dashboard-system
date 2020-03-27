@@ -24,3 +24,7 @@ const uiConfig = {
 // 3) Call the 'start' method on our ui class
 // including our configuration options. 
 ui.start('#firebaseui-auth-container', uiConfig);
+
+// function logOut(){
+//   FirebaseAuth.getInstance().signOut();
+// },

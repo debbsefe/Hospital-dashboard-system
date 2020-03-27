@@ -27,7 +27,7 @@ const createEncounter = function(encounters, filters){
     })
     $("#tbody").empty();
     filteredEncounters.forEach(element =>{
-        let buttonElement = $('<button>');
+        let buttonElement = $('<button class="btn-danger btn-sm">');
         buttonElement.text('X');
         buttonElement.on('click', ()=>{
             deleteEncounter(element);

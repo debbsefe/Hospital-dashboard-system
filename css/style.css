@@ -1,6 +1,11 @@
-  .top-wrapper{
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ .top-wrapper{
     display:flex;
-    justify-content: space-between;
+    justify-content: start;
   }
   #myInput {
     font-size: 16px; 
@@ -66,29 +71,30 @@
     color:black;
     cursor:pointer;
   }
-  .myTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
+  /* .myTable {
+    border-collapse: collapse; 
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
   }
   
   .myTable th, .myTable td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
+    text-align: left; 
+    padding: 12px; 
   }
   
   .myTable tr {
-    /* Add a bottom border to all table rows */
+    
     border-bottom: 1px solid #ddd;
   }
   
   .myTable tr.header, .myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
-  }
+   
+    background-color: #f1f1f1; 
+  }*/
    
 .updateModal{
+  display:none;
   position: fixed;
   top:50%;
   left:50%;

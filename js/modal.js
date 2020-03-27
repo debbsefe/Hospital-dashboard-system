@@ -4,12 +4,14 @@ var closeBtn = document.querySelector('.closeBtn');
 var form = document.querySelector('.formContent');
 var updateModal = document.querySelector('.updateModal');
 var closeUpdateBtn = document.querySelector('.closeUpdateBtn');
+//var id = document.querySelector('.patient_id');
 
 modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', windowClick);
 closeUpdateBtn.addEventListener('click', closeUpdateModal);
 filterPatient.addEventListener('keyup', filterItems);
+id.addEventListener('click', updateModal);
 
 function openModal(){
     modal.style.display = 'block';
@@ -26,4 +28,3 @@ function windowClick(e){
 function closeUpdateModal(){
     updateModal.style.display = 'none';
 }
-

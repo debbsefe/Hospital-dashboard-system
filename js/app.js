@@ -27,12 +27,12 @@ const createTable = function(tables, filters){
     })
     $("#tbody").empty();
     filteredTables.forEach(element =>{
-        let buttonElement = $('<button>');
+        let buttonElement = $('<button class="btn-danger btn-sm">');
         buttonElement.text('X');
         buttonElement.on('click', ()=>{
             deleteTable(element);
-        })
-        let tr = $("<tr><td>"+ element.id + "</td>" + "<td>" + element.Patient_name  + "</td>" + "<td>" + element.Patient_age  + "</td>" + "<td>" + element.Patient_gender + "</td> </tr>");
+        });
+        let tr = $("<tr><td class='patient_id' style='cursor:pointer; color:blue;'>"+ element.id + "</td>" + "<td>" + element.Patient_name  + "</td>" + "<td>" + element.Patient_age  + "</td>" + "<td>" + element.Patient_gender + "</td> </tr>");
         tr.append(buttonElement);
         $("#patientTable").find("tBody").append(tr);
     })
@@ -49,6 +49,8 @@ const deleteTable = function(element){
     }
     });  
 }
+
+//Save new patient record
 $('#savePatient').click((event)=>{
     event.preventDefault();
     const id = uuidv4();
@@ -66,5 +68,9 @@ $('#savePatient').click((event)=>{
         alert('Error adding patient', e)
     })
 })
+
+$("body").on("click", ".patient_id", function(){
+    updateModal.style.display = 'block';
+  });
 
 renderTables();

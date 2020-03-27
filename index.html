@@ -114,7 +114,7 @@
     </div>
 
     <div class="updateModal">
-      <form class="formContent" action="" method="post">
+      <form class="formContent" id="formContent" action="" method="post">
         <span class="closeUpdateBtn">&times;</span>
         <h2>UPDATE PATIENT RECORD</h2>
         <label>Full Name</label>
@@ -134,8 +134,7 @@
           class="form-control"
         />
         <label>Gender</label>
-        <select name="update_gender" class="form-control">
-          <option value="" hidden></option>
+        <select id="update_gender" class="form-control">
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>

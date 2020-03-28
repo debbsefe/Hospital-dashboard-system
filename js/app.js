@@ -64,14 +64,9 @@ const deleteTable = function (element) {
       .delete()
       .then(() => {
         alert("Patient record deleted successfully!");
-        const tableIndex = tables.findIndex(table => table.id === element.id);
-        if (tableIndex != 1) {
-          tables.splice(tableIndex, 1);
-          createTable(tables, filters);
-        }
+        location.reload();
       });
   } else {
-
   }
 };
 
@@ -85,18 +80,41 @@ $("#savePatient").click(event => {
     Patient_gender: $("#patient_gender").val(),
     id: id
   };
-  db.collection("tables")
-    .doc(id)
-    .set(table)
-    .then(() => {
-      closeModal();
-      alert("Patient added successsfully!");
-      tables.push(table);
-      createTable(tables, filters);
-    })
-    .catch(error => {
-      alert("Error adding patient", e);
-    });
+  
+  let valid = true;
+
+  if(table.Patient_age===""){
+    document.querySelector(".ageBlank").innerText = 'Age cannot be empty';
+    valid = false;
+  } else {
+    document.querySelector(".ageBlank").innerText = '';
+    valid = true;
+  }
+  
+  if(table.Patient_name===""){
+    document.querySelector(".nameBlank").innerText = 'Name cannot be empty';
+    valid = false;
+  } else {
+    document.querySelector(".nameBlank").innerText = '';
+    valid = true;
+  }
+  
+  if(valid === true) {
+    // execute if form is valid
+    db.collection("tables")
+      .doc(id)
+      .set(table)
+      .then(() => {
+        closeModal();
+        alert("Patient added successsfully!");
+        location.reload();
+      })
+      .catch(error => {
+        alert("Error adding patient", e);
+      });
+
+  }    
+ 
 });
 
 //Grab table row value to form

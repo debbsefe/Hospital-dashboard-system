@@ -57,13 +57,16 @@
             <h2>ADD NEW PATIENT</h2>
             <label>Full Name</label>
             <input type="text" id="patient_name" name="patient_name" class="form-control" />
+            <span class="nameBlank" style="color:red;"></span><br>
             <label>Age</label>
             <input type="number" id="patient_age" name="patient_age" class="form-control" />
+            <span class="ageBlank" style="color:red;"></span><br/>
             <label>Gender</label>
             <select name="patient_gender" id="patient_gender" class="form-control">
               <option>Male</option>
               <option>Female</option>
             </select>
+            <span class="genderError" style="color:red;"></span><br>
             <input type="submit" name="save" value="Save" id="savePatient" class="btn" />
           </form>
         </div>
@@ -91,11 +94,11 @@
       <span class="closeUpdateBtn">&times;</span>
       <h2>UPDATE PATIENT RECORD</h2>
       <label>Full Name</label>
-      <input type="text" id="update_name" name="patient_name" value="" class="form-control" />
+      <input type="text" id="update_name" name="patient_name" value="" class="form-control" required/>
       <label>Age</label>
-      <input type="text" id="update_age" name="patient_age" value="" class="form-control" />
+      <input type="text" id="update_age" name="patient_age" value="" class="form-control" required="required"/>
       <label>Gender</label>
-      <select id="update_gender" class="form-control">
+      <select id="update_gender" class="form-control" required>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         </select">

@@ -64,16 +64,9 @@ const deleteEncounter = function (element) {
       .delete()
       .then(() => {
         alert("Patient encounter deleted successfully!");
-        const encounterIndex = encounters.findIndex(
-          encounter => encounter.id === element.id
-        );
-        if (encounterIndex != 1) {
-          encounters.splice(encounterIndex, 1);
-          createEncounter(encounters, filters);
-        }
+        location.reload();
       });
   } else {
-
   }
 };
 
@@ -93,14 +86,11 @@ $("#saveEncounter").click(event => {
     .then(() => {
       closeModal();
       alert("Encounter added successsfully!");
-      encounters.push(encounter);
-      createEncounter(encounters, filters);
+      location.reload();
     })
     .catch(error => {
       alert("Error adding encounter", e);
     });
 });
-
-
 
 renderEncounters();

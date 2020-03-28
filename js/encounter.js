@@ -9,7 +9,7 @@ $("#myInput").on("input", () => {
   createEncounter(encounters, filters);
 });
 
-const renderEncounters = function() {
+const renderEncounters = function () {
   db.collection("encounters")
     .get()
     .then(data => {
@@ -22,7 +22,7 @@ const renderEncounters = function() {
 };
 
 //METHOD TO DISPLAY Encounter
-const createEncounter = function(encounters, filters) {
+const createEncounter = function (encounters, filters) {
   const filteredEncounters = $.grep(encounters, element => {
     return element.symptom
       .toLowerCase()
@@ -35,24 +35,21 @@ const createEncounter = function(encounters, filters) {
     buttonElement.on("click", () => {
       deleteEncounter(element);
     });
-    let timestamp: TimeInterval = 1541764115618;
-    let date = Date((timeIntervalSince1970: timestamp));
-    let tr = $(
-      "<tr><td>" +
-        element.id +
-        "</td>" +
-        "<td>" +
-        element.symptom +
-        "</td>" +
-        "<td>" +
-        element.prescription +
-        "</td>" +
-        "<td>" +
-        element.admitted +
-        "<td>" +
-        element.date +
-        "</td> </tr>"
-    );
+
+    let patient_id = $('<td class="patient_id" style="cursor:pointer; color:blue;">' + element.id + '</td>');
+    let symptom = $('<td>' + element.symptom + '</td>');
+    let prescription = $('<td>' + element.prescription + '</td>');
+    let admitted = $('<td>' + element.admitted + '</td>');
+    let dateTimestamp = element.date;
+    let dateString = dateTimestamp.toDate();
+    let localString = $('<td>' + dateString + '</td>');
+    let tr = $('<tr></tr>');
+
+    tr.append(patient_id);
+    tr.append(symptom);
+    tr.append(prescription);
+    tr.append(admitted);
+    tr.append(localString);
     tr.append(buttonElement);
     $("#encounterTable")
       .find("tBody")
@@ -60,21 +57,26 @@ const createEncounter = function(encounters, filters) {
   });
 };
 
-const deleteEncounter = function(element) {
-  db.collection("encounters")
-    .doc(element.id)
-    .delete()
-    .then(() => {
-      alert("Patient record deleted successfully!");
-      const encounterIndex = encounters.findIndex(
-        encounter => encounter.id === element.id
-      );
-      if (encounterIndex != 1) {
-        encounters.splice(encounterIndex, 1);
-        createEncounter(encounters, filters);
-      }
-    });
+const deleteEncounter = function (element) {
+  if (confirm('Are you sure you want to delete this record?')) {
+    db.collection("encounters")
+      .doc(element.id)
+      .delete()
+      .then(() => {
+        alert("Patient encounter deleted successfully!");
+        const encounterIndex = encounters.findIndex(
+          encounter => encounter.id === element.id
+        );
+        if (encounterIndex != 1) {
+          encounters.splice(encounterIndex, 1);
+          createEncounter(encounters, filters);
+        }
+      });
+  } else {
+
+  }
 };
+
 $("#saveEncounter").click(event => {
   event.preventDefault();
   const id = $("#patientid").val();
@@ -89,6 +91,7 @@ $("#saveEncounter").click(event => {
     .doc(id)
     .set(encounter)
     .then(() => {
+      closeModal();
       alert("Encounter added successsfully!");
       encounters.push(encounter);
       createEncounter(encounters, filters);
@@ -97,5 +100,7 @@ $("#saveEncounter").click(event => {
       alert("Error adding encounter", e);
     });
 });
+
+
 
 renderEncounters();

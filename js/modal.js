@@ -4,13 +4,11 @@ var closeBtn = document.querySelector(".closeBtn");
 var form = document.querySelector(".formContent");
 var updateModal = document.querySelector(".updateModal");
 var closeUpdateBtn = document.querySelector(".closeUpdateBtn");
-//var savePatient = document.querySelector('#savePatient')
 
 modalBtn.addEventListener("click", openModal);
 closeBtn.addEventListener("click", closeModal);
 window.addEventListener("click", windowClick);
 closeUpdateBtn.addEventListener("click", closeUpdateModal);
-//savePatient.addEventListener('click', closeModal)
 
 function openModal() {
   modal.style.display = "block";

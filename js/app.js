@@ -1,5 +1,6 @@
 let tables = [];
 
+//SEARCH BAR
 const filters = {
   searchText: ""
 };
@@ -9,6 +10,7 @@ $("#myInput").on("input", () => {
   createTable(tables, filters);
 });
 
+//GRAB TABLE VALUES FROM FIREBASE
 const renderTables = function () {
   db.collection("tables")
     .get()
@@ -65,6 +67,9 @@ const deleteTable = function (element) {
       .then(() => {
         alert("Patient record deleted successfully!");
         location.reload();
+      })
+      .catch(error => {
+        alert("Error deleting patient", e);
       });
   } else {
   }
@@ -139,11 +144,10 @@ const updateTable = function (element) {
       .then(() => {
         closeUpdateModal();
         alert("Updated successfully.");
-        tables.push(table);
-        createTable(tables, filters);
+        location.reload();
       })
       .catch(error => {
-        console.log("Error occured", error);
+        alert("Error adding patient", error);
       });
   });
 }

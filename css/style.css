@@ -19,9 +19,12 @@
     color:#fff;
     border:0;
     padding:1em 2em;
+    display: block;
+    width:30%;
   }
   .btn:hover{
-      background:#0e103d
+      background:#0e103d;
+      color:#fff;
   }
   #modalForm{
       display:none;
@@ -59,6 +62,11 @@
       cursor:pointer;
   }
   #savePatient{
+    margin: 0 auto;
+    display: block;
+    width:30%;
+  }
+  #saveEncounter{
     margin: 0 auto;
     display: block;
     width:30%;

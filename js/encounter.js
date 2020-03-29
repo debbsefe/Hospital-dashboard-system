@@ -1,5 +1,5 @@
 let encounters = [];
-
+//SEARCH BAR
 const filters = {
   searchText: ""
 };
@@ -9,6 +9,7 @@ $("#myInput").on("input", () => {
   createEncounter(encounters, filters);
 });
 
+//Method to render encounter table
 const renderEncounters = function () {
   db.collection("encounters")
     .get()
@@ -57,6 +58,7 @@ const createEncounter = function (encounters, filters) {
   });
 };
 
+//Delete encounter record
 const deleteEncounter = function (element) {
   if (confirm('Are you sure you want to delete this record?')) {
     db.collection("encounters")
@@ -65,11 +67,14 @@ const deleteEncounter = function (element) {
       .then(() => {
         alert("Patient encounter deleted successfully!");
         location.reload();
+      }).catch(error => {
+        alert("Error deleting patient", e);
       });
   } else {
   }
 };
 
+//Save new encounter
 $("#saveEncounter").click(event => {
   event.preventDefault();
   const id = $("#patientid").val();
